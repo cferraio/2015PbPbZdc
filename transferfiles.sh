@@ -52,11 +52,12 @@ done
 
 echo "Finished merging all root files for run ${runNumber}."
 
+if [ 1 -eq 0 ]; then
 n=2
 while [ $n -le $rootlines ]; do
 rm /afs/cern.ch/work/c/cferraio/public/2015ZDCTreeHolder/PbPb2015_PromptReco_MinBias2_${runNumber}_${n}.root
 (( n++ ))
 done
-#fi
+fi
 
 done < "filelist.txt"
