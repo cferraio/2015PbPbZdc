@@ -31,8 +31,8 @@ void HADsignal_TSfull::Loop()
 //by  b_branchname->GetEntry(ientry); //read only this branch
 
  TChain *chain=new TChain("ZDCDigiTree","");
- TFile *f = new TFile("/data/users/ferraioc/ZDC2015/PbPb2015_PromptReco_MinBias2_262811.root");
- TTree *aTree=(TTree*) f->Get("ZDCRecTree");
+ TFile *f = new TFile("/afs/cern.ch/work/c/cferraio/public/2015ZDCTreeHolder/NoiseRun263005.root");
+ TTree *aTree=(TTree*) f->Get("CentTree");
  Int_t Cent_HFtowers;
  aTree->SetBranchAddress("Cent_HFtowers",&Cent_HFtowers);
   
@@ -202,7 +202,7 @@ void HADsignal_TSfull::Loop()
   leg1->AddEntry(PHAD3,"PHAD3","f");
   leg1->AddEntry(PHAD4,"PHAD4","f");
   leg1->Draw();
-  sprintf(savename,"PHAD_Event%llu.pdf",jentry);
+  sprintf(savename,"plots/PHAD_Event%llu.pdf",jentry);
   c1->SaveAs(savename);
   
   largest = 0;
@@ -236,7 +236,7 @@ void HADsignal_TSfull::Loop()
   leg1->AddEntry(NHAD3,"NHAD3","f");
   leg1->AddEntry(NHAD4,"NHAD4","f");
   leg1->Draw();
-  sprintf(savename,"NHAD_Event%llu.pdf",jentry);
+  sprintf(savename,"plots/NHAD_Event%llu.pdf",jentry);
   c1->SaveAs(savename);
   
   
@@ -282,7 +282,7 @@ void HADsignal_TSfull::Loop()
   leg1->AddEntry(NEM4,"NEM4","f");
   leg1->AddEntry(NEM5,"NEM5","f");
   leg1->Draw();
-  sprintf(savename,"NEM_Event%llu.pdf",jentry);
+  sprintf(savename,"plots/NEM_Event%llu.pdf",jentry);
   c1->SaveAs(savename);
   
   largest = 0;
@@ -320,7 +320,7 @@ void HADsignal_TSfull::Loop()
   leg1->AddEntry(PEM4,"PEM4","f");
   leg1->AddEntry(PEM5,"PEM5","f");
   leg1->Draw();
-  sprintf(savename,"PEM_Event%llu.pdf",jentry);
+  sprintf(savename,"plots/PEM_Event%llu.pdf",jentry);
   c1->SaveAs(savename);
   
 

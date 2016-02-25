@@ -112,7 +112,7 @@ TimeSlice_fCWeight::TimeSlice_fCWeight(TTree *tree)
 {
 // CHANGE THAT VARIABLE Infile
 // Full file location at hepcms cluster:
-string Infile = "/data/users/ferraioc/ZDC2015/PbPb2015_PromptReco_MinBias2_262811.root";
+string Infile = "/afs/cern.ch/work/c/cferraio/public/2015ZDCTreeHolder/PbPb2015_PromptReco_MinBias2_263005.root";
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
    if (tree == 0) {
@@ -175,12 +175,17 @@ void TimeSlice_fCWeight::Init(TTree *tree)
    fChain->SetBranchAddress("negEM2ADC", negEM2ADC, &b_negEM2ADCtsz);
    fChain->SetBranchAddress("negEM3fC", negEM3fC, &b_negEM3cFtsz);
    fChain->SetBranchAddress("negEM3ADC", negEM3ADC, &b_negEM3ADCtsz);
-   fChain->SetBranchAddress("negEM4fC", negEM4fC, &b_negEM4cFtsz);
-   fChain->SetBranchAddress("negEM4ADC", negEM4ADC, &b_negEM4ADCtsz);
+   fChain->SetBranchAddress("negEM4fC", negHD1fC, &b_negHD1cFtsz);
+   fChain->SetBranchAddress("negEM4ADC", negHD1ADC, &b_negHD1ADCtsz);
+   
+
+
+   
+   
    fChain->SetBranchAddress("negEM5fC", negEM5fC, &b_negEM5cFtsz);
    fChain->SetBranchAddress("negEM5ADC", negEM5ADC, &b_negEM5ADCtsz);
-   fChain->SetBranchAddress("negHD1fC", negHD1fC, &b_negHD1cFtsz);
-   fChain->SetBranchAddress("negHD1ADC", negHD1ADC, &b_negHD1ADCtsz);
+   fChain->SetBranchAddress("negHD1fC", negEM4fC, &b_negEM4cFtsz);
+   fChain->SetBranchAddress("negHD1ADC", negEM4ADC, &b_negEM4ADCtsz);
    fChain->SetBranchAddress("negHD2fC", negHD2fC, &b_negHD2cFtsz);
    fChain->SetBranchAddress("negHD2ADC", negHD2ADC, &b_negHD2ADCtsz);
    fChain->SetBranchAddress("negHD3fC", negHD3fC, &b_negHD3cFtsz);

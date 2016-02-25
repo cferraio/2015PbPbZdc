@@ -1,6 +1,6 @@
 {
    
-  TFile f("/data/users/ferraioc/ZDC2015/PbPb2015_PromptReco_MinBias2_262811.root");   
+  TFile f("/afs/cern.ch/work/c/cferraio/public/2015ZDCTreeHolder/PbPb2015_PromptReco_MinBias2_263005.root");   
   //TTree *CENT = (TTree *) f->Get("BeamTree"); //This is in order to make centrality cups
   TTree *ZDCHI = (TTree *) f.Get("ZDCDigiTree"); //Grabs part of the root file that is called ZDCDigiTree
   Int_t NumberOfEvents = ZDCHI->GetEntries();  //Scans the file and finds the number of events
@@ -13,8 +13,8 @@
   /////////////Get Info From the Leaves/////////////////////////
 
   //CENTRAL= (TLeaf*)CENT->GetLeaf("CentralityBin"); //Uncomment in order to apply a centrality cut
-  NHAD1fC= (TLeaf*)ZDCHI->GetLeaf("negHD1cFtsz");//NHAD1
-  NHAD1ADC= (TLeaf*)ZDCHI->GetLeaf("negHD1ADCtsz");
+  NEM4fC= (TLeaf*)ZDCHI->GetLeaf("negHD1cFtsz");//NHAD1
+  NEM4ADC= (TLeaf*)ZDCHI->GetLeaf("negHD1ADCtsz");
   NHAD2fC= (TLeaf*)ZDCHI->GetLeaf("negHD2cFtsz");//NHAD2
   NHAD2ADC= (TLeaf*)ZDCHI->GetLeaf("negHD2ADCtsz");
   NHAD3fC= (TLeaf*)ZDCHI->GetLeaf("negHD3cFtsz");//NHAD3
@@ -27,8 +27,8 @@
   NEM2ADC= (TLeaf*)ZDCHI->GetLeaf("negEM2ADCtsz");
   NEM3fC= (TLeaf*)ZDCHI->GetLeaf("negEM3cFtsz");//NEM3
   NEM3ADC= (TLeaf*)ZDCHI->GetLeaf("negEM3ADCtsz");
-  NEM4fC= (TLeaf*)ZDCHI->GetLeaf("negEM4cFtsz");//NEM4
-  NEM4ADC= (TLeaf*)ZDCHI->GetLeaf("negEM4ADCtsz");
+  NHAD1fC= (TLeaf*)ZDCHI->GetLeaf("negEM4cFtsz");//NEM4
+  NHAD1ADC= (TLeaf*)ZDCHI->GetLeaf("negEM4ADCtsz");
   NEM5fC= (TLeaf*)ZDCHI->GetLeaf("negEM5cFtsz");//NEM5
   NEM5ADC= (TLeaf*)ZDCHI->GetLeaf("negEM5ADCtsz");
 
@@ -221,19 +221,19 @@
  
       //No Noise Subtraction
       
-      //HADsum=(NHAD1TotalSignal)+(NHAD2TotalSignal)+(NHAD3TotalSignal)+(NHAD4TotalSignal);
-      //ETsum=(NHAD1TotalSignal)+(NHAD2TotalSignal)+(NHAD3TotalSignal)+(NHAD4TotalSignal)+(.1*NEM1TotalSignal)+(.1*NEM2TotalSignal)+(.1*NEM3TotalSignal)+(.1*NEM4TotalSignal)+(.1*NEM5TotalSignal);
+      HADsum=(NHAD1TotalSignal)+(NHAD2TotalSignal)+(NHAD3TotalSignal)+(NHAD4TotalSignal);
+      ETsum=(NHAD1TotalSignal)+(NHAD2TotalSignal)+(NHAD3TotalSignal)+(NHAD4TotalSignal)+(.1*NEM1TotalSignal)+(.1*NEM2TotalSignal)+(.1*NEM3TotalSignal)+(.1*NEM4TotalSignal)+(.1*NEM5TotalSignal);
  
-      //EMsum=(NEM1TotalSignal)+(NEM2TotalSignal)+(NEM3TotalSignal)+(NEM4TotalSignal)+(NEM5TotalSignal);
+      EMsum=(NEM1TotalSignal)+(NEM2TotalSignal)+(NEM3TotalSignal)+(NEM4TotalSignal)+(NEM5TotalSignal);
 
 
 
       //Noise Subtraction
-      HADsum=(NHAD1TotalSignal-NHAD1TotalNoise)+(NHAD2TotalSignal-NHAD2TotalNoise)+(NHAD3TotalSignal-NHAD3TotalNoise)+(NHAD4TotalSignal-NHAD4TotalNoise);
+      //HADsum=(NHAD1TotalSignal-NHAD1TotalNoise)+(NHAD2TotalSignal-NHAD2TotalNoise)+(NHAD3TotalSignal-NHAD3TotalNoise)+(NHAD4TotalSignal-NHAD4TotalNoise);
 
-      ETsum=(NHAD1TotalSignal-NHAD1TotalNoise)+(NHAD2TotalSignal-NHAD2TotalNoise)+(NHAD3TotalSignal-NHAD3TotalNoise)+(NHAD4TotalSignal-NHAD4TotalNoise)+(.1)*(NEM1TotalSignal-NEM1TotalNoise)+(.1)*(NEM2TotalSignal-NEM2TotalNoise)+(.1)*(NEM3TotalSignal-NEM3TotalNoise)+(.1)*(NEM4TotalSignal-NEM4TotalNoise)+(.1)*(NEM5TotalSignal-NEM5TotalNoise);
+      //ETsum=(NHAD1TotalSignal-NHAD1TotalNoise)+(NHAD2TotalSignal-NHAD2TotalNoise)+(NHAD3TotalSignal-NHAD3TotalNoise)+(NHAD4TotalSignal-NHAD4TotalNoise)+(.1)*(NEM1TotalSignal-NEM1TotalNoise)+(.1)*(NEM2TotalSignal-NEM2TotalNoise)+(.1)*(NEM3TotalSignal-NEM3TotalNoise)+(.1)*(NEM4TotalSignal-NEM4TotalNoise)+(.1)*(NEM5TotalSignal-NEM5TotalNoise);
 
-      EMsum=(NEM1TotalSignal-NEM1TotalNoise)+(NEM2TotalSignal-NEM2TotalNoise)+(NEM3TotalSignal-NEM3TotalNoise)+(NEM4TotalSignal-NEM4TotalNoise)+(NEM5TotalSignal-NEM5TotalNoise);
+      //EMsum=(NEM1TotalSignal-NEM1TotalNoise)+(NEM2TotalSignal-NEM2TotalNoise)+(NEM3TotalSignal-NEM3TotalNoise)+(NEM4TotalSignal-NEM4TotalNoise)+(NEM5TotalSignal-NEM5TotalNoise);
 
       histogram_1D->Fill(HADsum);
       histogram_1DSum->Fill(ETsum);
@@ -257,20 +257,20 @@
 //      c1->SetPalette(1);
       c1->SetLogz();
       histogram_2D->Draw("colz");
-      c1->SaveAs("Plots/histo_2dNS.pdf");
+      c1->SaveAs("plots/histo_2dNS.pdf");
       
     c2 = new TCanvas();
     histogram_1D->SetXTitle("SumHad (fC)");
     histogram_1D->SetYTitle("Counts");
     c2->SetLogy();
     histogram_1D->Draw();
-    c2->SaveAs("Plots/histo_1DNS.pdf");
+    c2->SaveAs("plots/histo_1DNS.pdf");
  
     c3 = new TCanvas();
     histogram_1DSum->SetXTitle(".1*SumEM+SumHad (fC)");
     histogram_1DSum->SetYTitle("Counts");
     c3->SetLogy();
     histogram_1DSum->Draw();    
-    c3->SaveAs("Plots/histo_1DsumNS.pdf");
+    c3->SaveAs("plots/histo_1DsumNS.pdf");
 }
 

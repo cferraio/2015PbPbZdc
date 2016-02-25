@@ -50,12 +50,12 @@ echo "All files for ${runNumber} finished copying. Now merging."
 #mv /afs/cern.ch/work/c/cferraio/public/2015ZDCTreeHolder/PbPb2015_PromptReco_MinBias2_${runNumber}_1.root /afs/cern.ch/work/c/cferraio/public/2015ZDCTreeHolder/PbPb2015_PromptReco_MinBias2_${runNumber}.root
 
 #echo "First rootfile has been renamed. Merging beginning."
-
+if [ 1 -eq 0 ]; then
 haddlscommand=`ls -1x /afs/cern.ch/work/c/cferraio/public/2015ZDCTreeHolder/PbPb2015_PromptReco_MinBias2_${runNumber}_* | tr '\n' ' '`
 haddmergecommand="hadd /afs/cern.ch/work/c/cferraio/public/2015ZDCTreeHolder/PbPb2015_PromptReco_MinBias2_${runNumber}.root ${haddlscommand}"
 $haddmergecommand
 
-if [ 1 -eq 0 ]; then
+
 n=2
 while [ $n -le $rootlines ]; do
 hadd /afs/cern.ch/work/c/cferraio/public/2015ZDCTreeHolder/PbPb2015_PromptReco_MinBias2_${runNumber}_holder.root /afs/cern.ch/work/c/cferraio/public/2015ZDCTreeHolder/PbPb2015_PromptReco_MinBias2_${runNumber}_${n}.root /afs/cern.ch/work/c/cferraio/public/2015ZDCTreeHolder/PbPb2015_PromptReco_MinBias2_${runNumber}.root
@@ -63,7 +63,7 @@ mv /afs/cern.ch/work/c/cferraio/public/2015ZDCTreeHolder/PbPb2015_PromptReco_Min
 rm /afs/cern.ch/work/c/cferraio/public/2015ZDCTreeHolder/PbPb2015_PromptReco_MinBias2_${runNumber}_${n}.root
 (( n++ ))
 done
-fi
+
 
 echo "Finished merging all root files for run ${runNumber}."
 
@@ -74,7 +74,7 @@ rm /afs/cern.ch/work/c/cferraio/public/2015ZDCTreeHolder/PbPb2015_PromptReco_Min
 #(( n++ ))
 #done
 #fi
-
+fi
 echo "Deleted unmerged files for run ${runNumber}"
 
 done < "filelist.txt"

@@ -19,8 +19,8 @@ void TimeSlice_fCWeight::Loop()
 {
 // CHANGE THAT VARIABLE IdentifyString
 // String to identify file: this will be used in pdf file naming and output plot file naming
-string IdentifyString="ForwardAnalyzerRun262811_PromptRecoMinBias2";
-string InRun="262811";
+string IdentifyString="Collisions";
+string InRun="263005";
 //   In a ROOT session, you can do:
 //      Root > .L TimeSlice_fCWeight.C
 //      Root > TimeSlice_fCWeight t
@@ -46,7 +46,7 @@ string InRun="262811";
 //by  b_branchname->GetEntry(ientry); //read only this branch
 
  TChain *chain=new TChain("ZDCDigiTree","");
- TFile *OutFile=new TFile(Form("ForwardAnalyzerPlots_%s.root",IdentifyString.c_str()),"RECREATE");
+ TFile *OutFile=new TFile(Form("ForwardAnalyzerplots_%s.root",IdentifyString.c_str()),"RECREATE");
   TH1F* histogram_1D_PosHAD1 = new TH1F("PHAD1signal_TS_fC", "PHAD1signal_fC_TS", 10, 0, 10); 
   TH1F* histogram_1D_PosHAD2 = new TH1F("PHAD2signal_TS_fC", "PHAD2signal_fC_TS", 10, 0, 10); 
   TH1F* histogram_1D_PosHAD3 = new TH1F("PHAD3signal_TS_fC", "PHAD3signal_fC_TS", 10, 0, 10); 
@@ -254,56 +254,56 @@ histogram_1D_NegEM5->Write();
   c1 = new TCanvas();
  histogram_1D_PosHAD1->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18); 
- c1->Print(Form("Plots/PosHAD1signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
+ c1->Print(Form("plots/PosHAD1signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
  histogram_1D_PosHAD2->Draw();
   drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18); 
- c1->Print(Form("Plots/PosHAD2signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
+ c1->Print(Form("plots/PosHAD2signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
  histogram_1D_PosHAD3->Draw();
   drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18); 
- c1->Print(Form("Plots/PosHAD3signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
+ c1->Print(Form("plots/PosHAD3signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
  histogram_1D_PosHAD4->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18);
- c1->Print(Form("Plots/PosHAD4signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));   
+ c1->Print(Form("plots/PosHAD4signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));   
  histogram_1D_NegHAD1->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18);
- c1->Print(Form("Plots/NegHAD1signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
+ c1->Print(Form("plots/NegHAD1signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
  histogram_1D_NegHAD2->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18);
- c1->Print(Form("Plots/NegHAD2signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
+ c1->Print(Form("plots/NegHAD2signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
  histogram_1D_NegHAD3->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18);
- c1->Print(Form("Plots/NegHAD3signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
+ c1->Print(Form("plots/NegHAD3signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
  histogram_1D_NegHAD4->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18);
- c1->Print(Form("Plots/NegHAD4signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));   
+ c1->Print(Form("plots/NegHAD4signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));   
  histogram_1D_PosEM1->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18);
- c1->Print(Form("Plots/PosEM1signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
+ c1->Print(Form("plots/PosEM1signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
  histogram_1D_PosEM2->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18);
- c1->Print(Form("Plots/PosEM2signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
+ c1->Print(Form("plots/PosEM2signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
  histogram_1D_PosEM3->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18);
- c1->Print(Form("Plots/PosEM3signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
+ c1->Print(Form("plots/PosEM3signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
  histogram_1D_PosEM4->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18);
- c1->Print(Form("Plots/PosEM4signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));   
+ c1->Print(Form("plots/PosEM4signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));   
  histogram_1D_PosEM5->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18);
- c1->Print(Form("Plots/PosEM5signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));  
+ c1->Print(Form("plots/PosEM5signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));  
  histogram_1D_NegEM1->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18);
- c1->Print(Form("Plots/NegEM1signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
+ c1->Print(Form("plots/NegEM1signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
  histogram_1D_NegEM2->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18);
- c1->Print(Form("Plots/NegEM2signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
+ c1->Print(Form("plots/NegEM2signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
  histogram_1D_NegEM3->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18);
- c1->Print(Form("Plots/NegEM3signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
+ c1->Print(Form("plots/NegEM3signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));
  histogram_1D_NegEM4->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18);
- c1->Print(Form("Plots/NegEM4signal_TS_fCWeight_%s.pdf",IdentifyString.c_str())); 
+ c1->Print(Form("plots/NegEM4signal_TS_fCWeight_%s.pdf",IdentifyString.c_str())); 
  histogram_1D_NegEM5->Draw();
  drawText(Form("Run: %s",InRun.c_str()), 0.6, 0.8, 18); 
- c1->Print(Form("Plots/NegEM5signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));   
+ c1->Print(Form("plots/NegEM5signal_TS_fCWeight_%s.pdf",IdentifyString.c_str()));   
 }
