@@ -26,8 +26,8 @@ process.clusterCompatibilityFilter.clusterPars = cms.vdouble(0.0,0.006)
 process.load("CondCore.DBCommon.CondDBSetup_cfi")
 
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
-#process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(10000) )
+#process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(5000) )
 
 process.MessageLogger.cerr.FwkReport.reportEvery = 1000
 
@@ -101,7 +101,9 @@ process.TFileService = cms.Service("TFileService",
 import HLTrigger.HLTfilters.hltHighLevel_cfi                                                                     
 process.hltMinBias = HLTrigger.HLTfilters.hltHighLevel_cfi.hltHighLevel.clone()
 process.hltMinBias.HLTPaths = [
-                               "HLT_HIL1Tech6_BPTX_MinusOnly_v1"
+                               "HLT_HIL1Tech5_BPTX_PlusOnly_v1",
+                               "HLT_HIL1Tech6_BPTX_MinusOnly_v1",
+                               "HLT_HIL1Tech7_NoBPTX_v1"
                                ]
 
 
