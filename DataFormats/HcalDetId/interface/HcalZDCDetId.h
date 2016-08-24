@@ -35,7 +35,7 @@ public:
   int zside() const { return (id_&0x40)?(1):(-1); }
   /// get the section
   //Section section() const { return (Section)((id_>>4)&0x3); }
-  Section section() const { return (Section)(((id_>>4)&0x3)==1)?(1):((((id_>>4)&0x3)==2)?(2):((((id_>>4)&0x3)==3)?(3):((((id_>>4)&0x3)==8)?(8):(0)))); }
+  Section section() const { return (Section)((((id_>>4)&0xB)==1)?(1):((((id_>>4)&0xB)==2)?(2):((((id_>>4)&0xB)==3)?(3):((((id_>>4)&0xB)==8)?(8):(0))))); }
   /// get the depth (1 for EM, channel + 1 for HAD, not sure yet for LUM, leave as default)
   //int depth() const { return (((id_>>4)&0x3)==1)?(1):((((id_>>4)&0x3)==2)?((id_&0xF)+1):(id_&0xF)); }
   int depth() const { return (((id_>>4)&0x3)==1)?(1):((((id_>>4)&0x3)==2)?((id_&0xF)+1):(((id_>>4)&0x3)==3)?(id_&0xF):(1));}
